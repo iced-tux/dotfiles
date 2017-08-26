@@ -1,0 +1,9 @@
+# Blackllist everything
+/*
+
+# Whitelist git added files
+!.vimrc
+!.zshrc
+!.zsh/env_vars
+!.zsh/zalias
+
