@@ -4,7 +4,7 @@
 # Last-modified: 2017-08-06 So 10:33:51
 
 ## Load Aliases and Prompt
-fpath=(~/.zsh/ ~/.zsh/completion $fpath)
+fpath=($HOME/.zsh/ $HOME/.zsh/completion $fpath)
 
 ZDIR=$HOME/.zsh
 ZALIAS=${ZDIR}/zalias
@@ -64,9 +64,9 @@ _force_rehash() {
   return 1    # Because we didn't really complete anything
 }
 
-zstyle :compinstall filename '/home/christian/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 zstyle ':completion:*' add-space true
-zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*' cache-path $HOME/.zsh/cache
 zstyle ':completion:::::' completer _force_rehash _complete _approximate
 zstyle ':completion:complete:*' use cache 1
 # ignore completion functions
@@ -133,7 +133,7 @@ fi
 if [ "$TERM" = "xterm" ] || [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "screen-256color" ];
 then
         function powerline_precmd() {
-                PS1="$(~/git/powerline-shell/powerline-shell.py --colorize-hostname --cwd-mode fancy --shell zsh --mode patched 2> /dev/null)"
+                PS1="$($HOME/git/powerline-shell/powerline-shell.py --colorize-hostname --cwd-mode fancy --shell zsh --mode patched 2> /dev/null)"
         }
 
         function install_powerline_precmd() {
@@ -150,9 +150,9 @@ else
         autoload -U promptinit
         promptinit
 
-        if [[ -e ~/.hostname ]];
+        if [[ -e $HOME/.hostname ]];
         then
-                local myhostname=$(cat ~/.hostname)
+                local myhostname=$(cat $HOME/.hostname)
                 local winhostname="${myhostname}[$(hostname)]"
                 prompt cl2 $myhostname "$winhostname"
         else
@@ -207,7 +207,7 @@ fi
 
 autoload run-help
 
-HISTFILE=~/.histfile
+HISTFILE=$HOME/.histfile
 HISTSIZE=2000
 SAVEHIST=2000
 
