@@ -129,37 +129,22 @@ if [[ -f $HOME/.ssh/known_hosts ]]; then
     zstyle ':completion:*' hosts $_myhosts
 fi
 
-#My Prompt
-if [ "$TERM" = "xterm" ] || [ "$TERM" = "xterm-256color" ] || [ "$TERM" = "screen-256color" ];
-then
-        function powerline_precmd() {
-                PS1="$($HOME/git/powerline-shell/powerline-shell.py --colorize-hostname --cwd-mode fancy --shell zsh --mode patched 2> /dev/null)"
-        }
+function powerline_precmd() {
+    PS1="$(~/bin/powerline-shell.py $? --shell zsh 2> /dev/null)"
+}
 
-        function install_powerline_precmd() {
-                for s in "${precmd_functions[@]}"; do
-                if [ "$s" = "powerline_precmd" ]; then
-                        return
-                fi
-                done
-                precmd_functions+=(powerline_precmd)
-        }
-        install_powerline_precmd
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
 
-else
-        autoload -U promptinit
-        promptinit
-
-        if [[ -e $HOME/.hostname ]];
-        then
-                local myhostname=$(cat $HOME/.hostname)
-                local winhostname="${myhostname}[$(hostname)]"
-                prompt cl2 $myhostname "$winhostname"
-        else
-                prompt cl2
-        fi
+if [ "$TERM" != "linux" ]; then
+    install_powerline_precmd
 fi
-
 
 # Edit command line in $EDITOR
 autoload -U edit-command-line
