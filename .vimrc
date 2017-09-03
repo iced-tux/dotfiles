@@ -7,6 +7,7 @@ set shortmess+=aI    "avoids hint-enter prompts
 set ruler        "show line and column number
 let mapleader=","    " leader is comma
 set autoread
+set formatoptions+=j
 
 """ General """ }}}
 
@@ -29,13 +30,12 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 Plugin 'vim-airline/vim-airline-themes'
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'badwolf'
 
 " }}}
 
-" vim-colors-solarized {{{
-Plugin 'altercation/vim-colors-solarized'
-
+" VIM-Colorschemes {{{
+Plugin 'flazz/vim-colorschemes'
 " }}}
 
 " Nerdcommenter {{{
@@ -120,6 +120,16 @@ Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 " }}}
 
+" Markdown {{{
+Plugin 'plasticboy/vim-markdown'
+let g:vim_markdown_toc_autofit = 1
+" }}}
+
+" JSON.vim {{{
+Plugin 'elzr/vim-json'
+" }}}
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -162,6 +172,7 @@ set number        " show line numbers
 " set relativenumber
 set showcmd        " show command in bottom bar
 set cursorline        " highlight current line
+set cursorcolumn        " highlight current column
 filetype plugin indent on    " load filetype-specific indent files
 set wildmenu        " visuak autocomplete for command menu
 set lazyredraw        " redraw only when we need to
