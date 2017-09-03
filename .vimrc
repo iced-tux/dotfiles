@@ -31,7 +31,6 @@ let g:airline#extensions#tabline#enabled = 1
 
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline_theme = 'badwolf'
-
 " }}}
 
 " VIM-Colorschemes {{{
@@ -57,12 +56,6 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Add your own custom formats or override the defaults
 let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-
-" }}}
-
-" VIM Surround {{{
-Plugin 'tpope/vim-surround'
-
 " }}}
 
 " Syntastic {{{
@@ -75,7 +68,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
 "}}}
 
 " vim-fugetive {{{
@@ -84,7 +76,6 @@ Plugin 'tpope/vim-fugitive'
 
 " nerdtree {{{
 Plugin 'scrooloose/nerdtree'
-
 " }}}
 
 " nerdtree-git-plugin {{{
@@ -116,19 +107,13 @@ let g:jedi#use_splits_not_buffers = "bottom"
 Plugin 'ervandew/supertab'
 " }}}
 
-" Tabularize {{{
+" Tabular {{{
 Plugin 'godlygeek/tabular'
 " }}}
 
-" Markdown {{{
-Plugin 'plasticboy/vim-markdown'
-let g:vim_markdown_toc_autofit = 1
+" delimitmate {{{
+Plugin 'raimondi/delimitmate'
 " }}}
-
-" JSON.vim {{{
-Plugin 'elzr/vim-json'
-" }}}
-
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -175,7 +160,7 @@ set cursorline        " highlight current line
 set cursorcolumn        " highlight current column
 filetype plugin indent on    " load filetype-specific indent files
 set wildmenu        " visuak autocomplete for command menu
-set lazyredraw        " redraw only when we need to
+" set lazyredraw        " redraw only when we need to
 set showmatch        " highlight matching brackets
 set mouse+=a        " use mouse
 set wrap        " Wrap at end of window
@@ -260,12 +245,14 @@ vmap <F1> <C-C><F1>
 omap <F1> <C-C><F1>
 nnoremap <F1> :help<Space>
 
-map <F10> :set list!<CR>
+
+nnoremap <F4> :NERDTreeToggle<cr>
+nnoremap <F5> :UndotreeToggle<cr>
+
+nnoremap <F10> :set list!<CR>
 
 " Toggle line numbers
-map <F11> :set number!<CR>
-
-nnoremap <F5> :UndotreeToggle<cr>
+nnoremap <F11> :set number!<CR>
 
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
@@ -279,6 +266,10 @@ map qq :q<CR>
 
 " Fast quit without saving
 map Q :qa!<CR>
+
+" remove trailing whitespaces
+noremap <silent> <leader>tr :%s/\s\+$//e
+
 """ Keymappings """ }}}
 
 """ Leader Shortcuts """ {{{
@@ -297,7 +288,7 @@ set modelines=1        " check for modlines
 
 " Clear previous autocmds, stops a few errors creeping in.
 " autocmd!
-au vimenter * NERDTree
+" au vimenter * NERDTree
 au vimenter * wincmd p
 
 " Python PEP6 Standard
