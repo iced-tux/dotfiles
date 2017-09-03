@@ -1,5 +1,6 @@
 ## Aliases
 alias ll='ls -hlp --color=auto'
+alias la='ls -hlap --color=auto'
 alias ls='ls -hp --color=auto'
 alias cp='cp -v'
 alias mv='mv -v'
