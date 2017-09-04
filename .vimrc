@@ -111,6 +111,19 @@ Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 " }}}
 
+" vim-markdown {{{
+Plugin 'plasticboy/vim-markdown'"
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_math = 1
+let g:vim_markdown_json_frontmatter = 1
+" }}}
+
+" vim-json {{{
+Plugin 'elzr/vim-json'
+" }}}
+
 " delimitmate {{{
 Plugin 'raimondi/delimitmate'
 " }}}
@@ -245,7 +258,6 @@ vmap <F1> <C-C><F1>
 omap <F1> <C-C><F1>
 nnoremap <F1> :help<Space>
 
-
 nnoremap <F4> :NERDTreeToggle<cr>
 nnoremap <F5> :UndotreeToggle<cr>
 
@@ -268,7 +280,7 @@ map qq :q<CR>
 map Q :qa!<CR>
 
 " remove trailing whitespaces
-noremap <silent> <leader>tr :%s/\s\+$//e
+noremap <silent> <leader>tr :%s/\s\+$//e<CR>
 
 """ Keymappings """ }}}
 
@@ -286,12 +298,10 @@ set modelines=1        " check for modlines
 
 """ Autocommands """ {{{
 
-" Clear previous autocmds, stops a few errors creeping in.
-" autocmd!
 " au vimenter * NERDTree
 au vimenter * wincmd p
 
-" Python PEP6 Standard
+" Python PEP8 Standard
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
@@ -301,6 +311,18 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix |
     \ let python_highlight_all = 1
+
+au! BufRead,BufNewFile *.json set filetype=json
+
+augroup json_autocmd
+    autocmd!
+    autocmd FileType json set autoindent
+    autocmd FileType json set formatoptions=tcq2l
+    autocmd FileType json set textwidth=78 shiftwidth=2
+    autocmd FileType json set softtabstop=2 tabstop=8
+    autocmd FileType json set expandtab
+    autocmd FileType json set foldmethod=syntax
+augroup END
 
 " Resize Bufferwindow when resizing terminal
 au VimResized * wincmd =
