@@ -128,6 +128,10 @@ Plugin 'elzr/vim-json'
 Plugin 'raimondi/delimitmate'
 " }}}
 
+" pyhton-mode {{{
+Plugin 'klen/python-mode'
+" }}}
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -281,6 +285,9 @@ map Q :qa!<CR>
 
 " remove trailing whitespaces
 noremap <silent> <leader>tr :%s/\s\+$//e<CR>
+
+" add python utf8 header
+noremap <silent> <leader>ph i# -*- coding: utf-8 -*-<CR><ESC>
 
 """ Keymappings """ }}}
 
