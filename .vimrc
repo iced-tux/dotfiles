@@ -8,6 +8,10 @@ set ruler        "show line and column number
 let mapleader=","    " leader is comma
 set autoread
 set formatoptions+=j
+set t_Co=256
+" Have some context around the current line always on screen
+set scrolloff=3
+set sidescrolloff=5
 
 """ General """ }}}
 
@@ -132,6 +136,21 @@ Plugin 'raimondi/delimitmate'
 Plugin 'klen/python-mode'
 " }}}
 
+" javascript {{{
+Plugin 'pangloss/vim-javascript'
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+" }}}
+
+" javascript-syntax {{{
+Plugin 'jelera/vim-javascript-syntax'
+" }}}
+
+" tern-for-vim {{{
+Plugin 'marijnh/tern_for_vim'
+" }}}
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -182,7 +201,7 @@ set showmatch        " highlight matching brackets
 set mouse+=a        " use mouse
 set wrap        " Wrap at end of window
 set linebreak   " Wrap only at valid chars
-set listchars=tab:>-,trail:-,extends:>,precedes:<
+set listchars=tab:>-,trail:-,extends:»,precedes:«,eol:⮡,space:·
 set iskeyword+=-
 set list        " Show tab as CTRL-I, EOL = $
 set equalalways        " Set windowsize to equal
@@ -251,6 +270,7 @@ imap <C-up>    <ESC>:tabr<CR>i
 imap <C-down>    <ESC>:tabl<CR>i
 imap <C-left>    <ESC>:tabp<CR>i
 imap <C-right>    <ESC>:tabn<CR>i
+imap <C-c> <CR><Esc>O
 " Map Tab to indent
 nmap <tab> <s->><s->>
 nmap <s-tab> <s-<><s-<>
