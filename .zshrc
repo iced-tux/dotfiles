@@ -13,6 +13,10 @@ ENV_VARS=${ZDIR}/env_vars
 [ -f $ZALIAS ] && source $ZALIAS
 [ -f $ENV_VARS ] && source $ENV_VARS
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # Options
 
 ## Completion
@@ -130,7 +134,7 @@ if [[ -f $HOME/.ssh/known_hosts ]]; then
 fi
 
 function powerline_precmd() {
-    PS1="$(~/bin/powerline-shell.py $? --shell zsh 2> /dev/null)"
+    PS1="$(~/bin/powerline-shell.py --shell zsh $? 2> /dev/null)"
 }
 
 function install_powerline_precmd() {
