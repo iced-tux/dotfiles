@@ -1,0 +1,10 @@
+[color]
+	ui = true
+[format]
+	pretty = oneline
+[user]
+	name = Christian Langer
+	email = ch.langer+git@posteo.de
+	signingkey = 7BAC46E8ADC1A7EC
+[core]
+	editor = vim

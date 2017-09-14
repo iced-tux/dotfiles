@@ -1,0 +1,34 @@
+LANG=de_DE
+LANGUAGE=de_DE
+export LC_CTYPE="de_DE.utf8"
+export LC_NUMERIC="de_DE.utf8"
+export LC_TIME="de_DE.utf8"
+export LC_COLLATE="de_DE.utf8"
+export LC_MONETARY="de_DE.utf8"
+export LC_MESSAGES="en_US.utf8"
+export LC_PAPER="de_DE.utf8"
+export LC_NAME="de_DE.utf8"
+export LC_ADDRESS="de_DE.utf8"
+export LC_TELEPHONE="de_DE.utf8"
+export LC_MEASUREMENT="de_DE.utf8"
+export LC_IDENTIFICATION="de_DE.utf8"
+
+export EDITOR=vim
+export GDK_USE_XFT=1
+#export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
+#export LS_COLORS="di=01;96:ow=96"
+#export GREP_COLORS="mt=0;31:fn=1;33:ln=1;33:se=1;33"
+export TERM=xterm-256color
+
+
+
+# paths
+export RSYNC_RSH=ssh
+
+# Load pyenv automatically by adding
+# the following to ~/.zshrc:
+
+export PATH="$HOME/opt/android-sdk-linux/:$HOME/opt/android-sdk-linux/platform-tools:$HOME/opt/android-sdk-linux/tools:$PATH"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+
