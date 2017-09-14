@@ -5,6 +5,7 @@ git-doc
 git-man
 gitk
 lxterminal
+stow
 tmux
 vim
 vim-common
