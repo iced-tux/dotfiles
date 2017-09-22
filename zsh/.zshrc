@@ -134,7 +134,7 @@ if [[ -f $HOME/.ssh/known_hosts ]]; then
 fi
 
 function powerline_precmd() {
-    PS1="$(~/bin/powerline-shell.py --shell zsh $? 2> /dev/null)"
+    PS1="$(powerline-shell --shell zsh $?)"
 }
 
 function install_powerline_precmd() {
