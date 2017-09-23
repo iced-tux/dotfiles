@@ -13,19 +13,15 @@ setup_git: install_pkgs
 	fi
 
 	# badwolf
-	git clone https://github.com/sjl/badwolf.git ~/git/
+	git clone https://github.com/sjl/badwolf.git ~/git/badwolf
 	# dotfiles
-	git clone https://github.com/iced-tux/dotfiles.git ~/git/
+	git clone https://github.com/iced-tux/dotfiles.git ~/git/dotfiles
 	# powerline-fonts
-	git clone https://github.com/powerline/fonts.git ~/git/
+	git clone https://github.com/powerline/fonts.git ~/git/powerline-fonts
 	# powerline-shell
-	git clone https://github.com/milkbikis/powerline-shell ~/git/
+	git clone https://github.com/milkbikis/powerline-shell ~/git/powerline-shell
 	# .tmux
-	git clone https://github.com/gpakosz/.tmux.git ~/git/
-	
-	## install global gitignore
-	cd $HOME/git/dotfiles
-	stow git --target ~/
+	git clone https://github.com/gpakosz/.tmux.git ~/git/tmux
 
 setup_vim: setup_git
 
