@@ -1,5 +1,8 @@
 curl
+cowsay
 flake8
+fortunes
+fortunes-bofh-excuses
 git
 git-doc
 git-man
