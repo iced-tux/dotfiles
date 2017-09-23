@@ -139,31 +139,31 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle command-not-found
-antigen theme bhilburn/powerlevel9k powerlevel9k
+# antigen theme bhilburn/powerlevel9k powerlevel9k
 antigen apply
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user host dir vcs )
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(newline status root_indicator background_jobs time)
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-POWERLEVEL9K_DIR_SHOW_WRITABLE="true"
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user host dir vcs )
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs)
+# POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
+# POWERLEVEL9K_DIR_SHOW_WRITABLE="true"
 
 
-# function powerline_precmd() {
-#     PS1="$(powerline-shell --shell zsh $?)"
-# }
-#
-# function install_powerline_precmd() {
-#   for s in "${precmd_functions[@]}"; do
-#     if [ "$s" = "powerline_precmd" ]; then
-#       return
-#     fi
-#   done
-#   precmd_functions+=(powerline_precmd)
-# }
-#
-# if [ "$TERM" != "linux" ]; then
-#     install_powerline_precmd
-# fi
+function powerline_precmd() {
+    PS1="$(powerline-shell --shell zsh $?)"
+}
+
+function install_powerline_precmd() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(powerline_precmd)
+}
+
+if [ "$TERM" != "linux" ]; then
+    install_powerline_precmd
+fi
 
 # Edit command line in $EDITOR
 autoload -U edit-command-line

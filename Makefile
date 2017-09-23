@@ -6,7 +6,7 @@ install_pkgs:
 	sudo apt-get -y $(cat pkgs.txt)
 
 
-setup_git: install_pkgs
+setup_git: 
 
 	if [ ! -d "~/git" ]; then
 		mkdir ~/git
@@ -22,12 +22,13 @@ setup_git: install_pkgs
 	git clone https://github.com/milkbikis/powerline-shell ~/git/powerline-shell
 	# .tmux
 	git clone https://github.com/gpakosz/.tmux.git ~/git/tmux
+	git clone https://github.com/zsh-users/antigen.git ~/git/antigen
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-setup_vim: setup_git
+setup_vim:
 
 	cd $HOME/git/dotfiles
 	stow vim --target ~/
 
-setup_vim_vundle: setup_vim
-	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+setup_vim_vundle: 
 

@@ -12,5 +12,7 @@
     "read_only",
     "exit_code"
   ],
-  "theme": "default"
+  "theme": "default",
+  "hostname": {
+  "colorize": "true"}
 }
