@@ -114,7 +114,11 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:(rm|mv|cp|cd):*' ignore-line yes
 
 autoload -Uz compinit
-compinit -i
+if [[ ${UID} -eq 0 ]] && [[ -n ${SUDO_USER} ]]; then
+    compinit -u -d "$HOME/.zcompdump"
+else
+    compinit -d "$HOME/.zcompdump"
+fi
 
 # Ignore parent directory, e.g cp
 zstyle ':completion:*:(cd|mv|cp):*' ignore-parents parent pwd

@@ -14,5 +14,10 @@
   ],
   "theme": "default",
   "hostname": {
-  "colorize": "true"}
+    "colorize": "true"
+  },
+  "cwd": {
+    "max_depth": 3,
+    "max_dir_size": 8
+  }
 }

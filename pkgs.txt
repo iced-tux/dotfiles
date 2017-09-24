@@ -18,7 +18,6 @@ vim-runtime
 vim-scripts
 vim-tiny
 zsh
-zsh-antigen
 zsh-common
 zsh-doc
 zsh-lovers
