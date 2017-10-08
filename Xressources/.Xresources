@@ -1,0 +1,45 @@
+!!!!!
+!XTerm settings
+!!!!!
+
+XTerm*jumpScroll:		true
+XTerm*multiScroll:		true
+XTerm*faceName:			DejaVu Sans Mono for Powerline Book:pixelsize=13
+! XTerm*faceName:			Ubuntu Mono:pixelsize=13
+XTerm*loginShell:		true
+XTerm*visualBell:		false
+XTerm*scrollBar:		false
+XTerm*termName:			xterm-256color
+XTerm*tripleClickwords:	true
+XTerm*background:		#333333
+XTerm*foreground:		#cbcbcb
+XTerm*cursorColor:		#cbcbcb
+XTerm*saveLines:		100000
+XTerm*cutNewLine:		false
+XTerm*utf8:				1
+
+!!!!!
+!URxvt settings
+!!!!!
+
+URxvt*jumpScroll:		true
+URxvt*multiScroll:		true
+URxvt*font:				xft:DejaVu Sans Mono for Powerline::pixelsize=12:antialias=true
+URxvt*loginShell:		true
+URxvt*visualBell:		false
+URxvt*scrollBar:		false
+URxvt*termName:			rxvt-256color
+URxvt*tripleClickwords:	true
+! URxvt*background:		#333333
+URxvt*background:		#000000
+URxvt*foreground:		#E5E5E5
+URxvt*cursorColor:		#E5E5E5
+URxvt*saveLines:		100000
+URxvt*cutNewLine:		false
+URxvt*utf8:				1
+URxvt*letterSpace:		-1.5
+! Scrollback buffer in secondary screen
+URxvt.secondaryScreen:	1
+URxvt.secondaryScroll:	0
+URxvt.iconFile:			/usr/share/icons/Numix-Circle/scalable/apps/terminal.svg
+! URxvt.perl-ext-common:	digital-clock
