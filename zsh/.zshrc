@@ -2,6 +2,15 @@
 # -*- mode: shell-script -*-
 # The following lines were added by compinstall
 # Last-modified: 2017-08-06 So 10:33:51
+#
+source ~/git/antigen/bin/antigen.zsh
+
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle command-not-found
+# antigen theme bhilburn/powerlevel9k powerlevel9k
+antigen apply
 
 ## Load Aliases and Prompt
 fpath=($HOME/.zsh/ $HOME/.zsh/completion $fpath)
@@ -130,14 +139,6 @@ if [[ -f $HOME/.ssh/known_hosts ]]; then
     zstyle ':completion:*' hosts $_myhosts
 fi
 
-source ~/git/antigen/bin/antigen.zsh
-
-antigen use oh-my-zsh
-antigen bundle git
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle command-not-found
-# antigen theme bhilburn/powerlevel9k powerlevel9k
-antigen apply
 
 # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user host dir vcs )
 # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status background_jobs)

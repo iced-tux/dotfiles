@@ -1,5 +1,5 @@
 ## Aliases
-alias ll='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --human-readable -l --classify --color=always -v'
+alias -g ll='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --human-readable -l --classify --color=always -v'
 alias la='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --human-readable -l --classify --color=always -v -a'
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --human-readable --classify --color=always -v'
 alias cp='cp -v'
