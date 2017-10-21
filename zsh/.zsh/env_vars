@@ -32,3 +32,7 @@ export PATH="$HOME/.local/bin/:$HOME/opt/android-sdk-linux/:$HOME/opt/android-sd
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 
+# OpenStack Variables
+OS_LAB=~/opt/OpenStack-lab
+OS_ST=~/opt/OpenStack-lab/labs
+OS_BASH=~/opt/OpenStack-lab/labs/osbash
