@@ -201,7 +201,7 @@ set showmatch        " highlight matching brackets
 set mouse+=a        " use mouse
 set wrap        " Wrap at end of window
 set linebreak   " Wrap only at valid chars
-set listchars=tab:>-,trail:-,extends:»,precedes:«,eol:⮡,space:·
+set listchars=tab:>-,trail:-,extends:»,precedes:«,eol:$,space:·
 set iskeyword+=-
 set list        " Show tab as CTRL-I, EOL = $
 set equalalways        " Set windowsize to equal
