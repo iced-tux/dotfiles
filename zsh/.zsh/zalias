@@ -30,3 +30,11 @@ aptdate () {
     sleep 3
     apt-get purge --purge $(deborphan) $(dpkg -l | awk '/^rc/ {print $2}')
 }
+
+wttr () {
+    if [ $(which curl) ]; then
+        curl -H "Accept-Language: ${LANG%_*}" wttr.in/"${1:-Niederkassel}"
+    else
+        echo "you need to install curl"
+    fi
+}
