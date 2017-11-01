@@ -9,6 +9,7 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle command-not-found
+antigen bundle colored-man-pages
 # antigen theme bhilburn/powerlevel9k powerlevel9k
 antigen apply
 
