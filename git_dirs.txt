@@ -5,3 +5,4 @@ git clone https://github.com/ultrabug/py3status
 	git clone https://github.com/gpakosz/.tmux.git ~/git/tmux
 	git clone https://github.com/zsh-users/antigen.git ~/git/antigen
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone git://github.com/tobi-wan-kenobi/bumblebee-status
