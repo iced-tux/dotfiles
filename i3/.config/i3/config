@@ -64,7 +64,7 @@ bindsym $mod+Shift+odiaeresis move right
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
@@ -91,21 +91,29 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+d focus child
+
+set $WS1 1: browser
+set $WS2 2: mail
+set $WS3 3: media
+set $WS4 4: office
+set $WS5 5: terminal
+
+
 
 # switch to workspace
-bindsym $alt+1 workspace browser
-bindsym $alt+2 workspace mail
-bindsym $alt+3 workspace media
-bindsym $alt+4 workspace office
-bindsym $alt+5 workspace terminal
+bindsym $alt+1 workspace $WS1
+bindsym $alt+2 workspace $WS2
+bindsym $alt+3 workspace $WS3
+bindsym $alt+4 workspace $WS4
+bindsym $alt+5 workspace $WS5
 
 # move focused container to workspace
-bindsym $alt+Shift+1 move container to workspace browser
-bindsym $alt+Shift+2 move container to workspace mail
-bindsym $alt+Shift+3 move container to workspace media
-bindsym $alt+Shift+4 move container to workspace office
-bindsym $alt+Shift+5 move container to workspace terminal
+bindsym $alt+Shift+1 move container to workspace $WS1
+bindsym $alt+Shift+2 move container to workspace $WS2
+bindsym $alt+Shift+3 move container to workspace $WS3
+bindsym $alt+Shift+4 move container to workspace $WS4
+bindsym $alt+Shift+5 move container to workspace $WS5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -157,6 +165,8 @@ bar {
     status_command ~/git/bumblebee-status/bumblebee-status \
     -t solarized-dark-awesome \
     -m  spacer \
+        pasink \
+        spacer \
         datetime weather \
         spacer \
         uptime cpu load \
@@ -165,7 +175,6 @@ bar {
         nic \
         spacer \
         battery \
-        spacer \
     -p  datetime.format="%H:%M - %a, %d.%m.%Y (KW %V)" \
         memory.usedonly="true" \
         nic.states="^down" traffic.states="^down" \
@@ -183,10 +192,37 @@ bar {
     }
 }
 
+set $Locker i3lock && sleep 1
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Pause mode "$mode_system"
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 
 # autostart section
 exec nm-applet
-exec firefox
+exec nitrogen --set-auto --save --random ~/Pictures/wallpaper
+# exec firefox
 
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [title="Preferences$"] floating enable
+for_window [title="About Mozilla Firefox"] floating enable
+#
 # assign clients to workspaces
-assign [class="^Firefox$"] browser
+assign [class="^Firefox$"] $WS1
