@@ -1,0 +1,8 @@
+git clone https://github.com/ultrabug/py3status
+	git clone https://github.com/iced-tux/dotfiles.git ~/git/dotfiles
+	git clone https://github.com/powerline/fonts.git ~/git/powerline-fonts
+	git clone https://github.com/milkbikis/powerline-shell ~/git/powerline-shell
+	git clone https://github.com/gpakosz/.tmux.git ~/git/tmux
+	git clone https://github.com/zsh-users/antigen.git ~/git/antigen
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone git://github.com/tobi-wan-kenobi/bumblebee-status
