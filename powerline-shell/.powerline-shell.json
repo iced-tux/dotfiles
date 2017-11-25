@@ -1,9 +1,7 @@
 {
   "segments": [
-    "virtual_env", 
     "username", 
     "hostname", 
-    "ssh", 
     "cwd", 
     "git", 
     "newline",
@@ -13,9 +11,6 @@
     "exit_code"
   ],
   "theme": "default",
-  "hostname": {
-    "colorize": "true"
-  },
   "cwd": {
     "max_depth": 3
   }
