@@ -5,6 +5,7 @@
     "cwd", 
     "git", 
     "newline",
+    "virtual_env",
     "jobs", 
     "root",
     "read_only",

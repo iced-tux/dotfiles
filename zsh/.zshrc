@@ -11,11 +11,13 @@ SAVEHIST=2000
 
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
+    colored-man-pages
     history
-    zsh-users/zsh-syntax-highlighting
+    vi-mode
+    virtualenvwrapper
     zsh-users/zsh-autosuggestions
     zsh-users/zsh-completions
-    colored-man-pages
+    zsh-users/zsh-syntax-highlighting
 EOBUNDLES
 
 antigen apply
