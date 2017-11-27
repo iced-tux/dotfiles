@@ -1,0 +1,18 @@
+[submodule "repos/py3status"]
+	path = repos/py3status
+	url = https://github.com/ultrabug/py3status
+[submodule "repos/powerline-fonts"]
+	path = repos/powerline-fonts
+	url = https://github.com/powerline/fonts.git
+[submodule "repos/powerline-shell"]
+	path = repos/powerline-shell
+	url = https://github.com/milkbikis/powerline-shell
+[submodule "repos/tmux"]
+	path = repos/tmux
+	url = https://github.com/gpakosz/.tmux.git
+[submodule "repos/antigen"]
+	path = repos/antigen
+	url = https://github.com/zsh-users/antigen.git
+[submodule "repos/Vundle.vim"]
+	path = repos/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
