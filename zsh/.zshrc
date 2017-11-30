@@ -8,17 +8,20 @@ HISTFILE=$HOME/.histfile
 HISTSIZE=2000
 SAVEHIST=2000
 [ -f $ENV_VARS ] && source $ENV_VARS
+ZSH_TMUX_AUTOSTART=true
 
 antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
     colored-man-pages
     history
+    tmux
     vi-mode
     virtualenvwrapper
     zsh-users/zsh-autosuggestions
     zsh-users/zsh-completions
     zsh-users/zsh-syntax-highlighting
 EOBUNDLES
+
 
 antigen apply
 
