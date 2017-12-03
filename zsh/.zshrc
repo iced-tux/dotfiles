@@ -14,6 +14,7 @@ antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
     colored-man-pages
     history
+    ssh-agent agent-forwarding on
     tmux
     vi-mode
     virtualenvwrapper
