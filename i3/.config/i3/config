@@ -158,28 +158,25 @@ bar {
     position top
     workspace_buttons no
     colors {
-    background #002B36
+        background #002B36
     }
     # status_command i3status
     # i3bar_command i3bar
     status_command ~/git/bumblebee-status/bumblebee-status \
     -t solarized-dark-awesome \
-    -m  spacer \
-        pasink \
+    -m  pasink \
         spacer \
-        datetime weather \
+        datetime \
         spacer \
-        uptime cpu load \
+        cpu load \
         spacer \
-        publicip \
         nic \
         spacer \
         battery \
     -p  datetime.format="%H:%M - %a, %d.%m.%Y (KW %V)" \
         memory.usedonly="true" \
         nic.states="^down" traffic.states="^down" \
-        weather.interval=5 \
-        spacer.text=" | "
+        spacer.text="|"
 }
 
 bar {
@@ -188,7 +185,7 @@ bar {
     position bottom
     tray_output none
     colors {
-    background #002B36
+        background #002B36
     }
 }
 
