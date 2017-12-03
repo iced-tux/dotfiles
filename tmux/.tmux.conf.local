@@ -45,8 +45,8 @@ tmux_conf_new_session_prompt=false
 tmux_conf_theme_24b_colour=true
 
 # window style
-tmux_conf_theme_window_fg='#E5E5E5'
-tmux_conf_theme_window_bg='#000000'
+# tmux_conf_theme_window_fg='#E5E5E5'
+# tmux_conf_theme_window_bg='#000000'
 
 # highlight focused pane (tmux >= 2.1), possible values are:
 #   - true
@@ -54,7 +54,7 @@ tmux_conf_theme_window_bg='#000000'
 tmux_conf_theme_highlight_focused_pane=false
 
 # focused pane colours:
-tmux_conf_theme_focused_pane_fg='default'
+# tmux_conf_theme_focused_pane_fg='default'
 # tmux_conf_theme_focused_pane_bg='#0087d7'               # light blue
 
 # pane border style, possible values are:
@@ -126,14 +126,14 @@ tmux_conf_theme_window_status_last_bg='default'
 tmux_conf_theme_window_status_last_attr='none'
 
 # status left/right sections separators
-# tmux_conf_theme_left_separator_main=''
-# tmux_conf_theme_left_separator_sub='|'
-# tmux_conf_theme_right_separator_main=''
-# tmux_conf_theme_right_separator_sub='|'
-tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
-tmux_conf_theme_left_separator_sub=''   #   you only need fonts patched with
-tmux_conf_theme_right_separator_main='' #   Powerline symbols or the standalone
-tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
+tmux_conf_theme_left_separator_main=''
+tmux_conf_theme_left_separator_sub='|'
+tmux_conf_theme_right_separator_main=''
+tmux_conf_theme_right_separator_sub='|'
+# tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
+# tmux_conf_theme_left_separator_sub=''   #   you only need fonts patched with
+# tmux_conf_theme_right_separator_main='' #   Powerline symbols or the standalone
+# tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
 
 # status left/right content:
 #   - separate main sections with '|'
@@ -157,9 +157,10 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=' ❐ #S '
+tmux_conf_theme_status_left=' ❐ #{circled_session_name} '
 # tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
-tmux_conf_theme_status_right='#{prefix}#{pairing} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
+tmux_conf_theme_status_right='#{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},}'
+# tmux_conf_theme_status_right='#{prefix}#{pairing} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
 # tmux_conf_theme_status_right='#{prefix}#{pairing}, %R , %d %b | #{username}#{root} | #{hostname} '
 
 # status left style
@@ -191,15 +192,15 @@ tmux_conf_theme_root_bg='none'
 tmux_conf_theme_root_attr='bold,blink'
 
 # battery bar symbols
-# tmux_conf_battery_bar_symbol_full='◼'
+tmux_conf_battery_bar_symbol_full='◼'
 # tmux_conf_battery_bar_symbol_empty='◻'
-tmux_conf_battery_bar_symbol_full='♥'
+# tmux_conf_battery_bar_symbol_full='♥'
 tmux_conf_battery_bar_symbol_empty='·'
 
 # battery bar length (in number of symbols), possible values are:
 #   - auto
 #   - a number, e.g. 5
-tmux_conf_battery_bar_length='auto'
+tmux_conf_battery_bar_length='8'
 
 # battery bar palette, possible values are:
 #   - gradient (default)
