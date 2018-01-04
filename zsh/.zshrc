@@ -1,4 +1,4 @@
-source $HOME/git/antigen/antigen.zsh
+source $HOME/.zsh/antigen.zsh
 fpath=($HOME/.zsh/ $HOME/.zsh/completion $fpath)
 
 ZDIR=$HOME/.zsh
