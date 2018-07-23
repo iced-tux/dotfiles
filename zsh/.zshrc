@@ -145,6 +145,6 @@ function install_powerline_precmd() {
   precmd_functions+=(powerline_precmd)
 }
 
-if [ "$TERM" != "linux" ]; then
+if [ "$TERM" != "linux" ] && [[ $(tty ) =~ '^/dev/pts/' ]]; then
     install_powerline_precmd
 fi

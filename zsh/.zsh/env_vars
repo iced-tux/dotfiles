@@ -1,5 +1,5 @@
-LANG=de_DE
-LANGUAGE=de_DE
+export LANG=de_DE
+export LANGUAGE=de_DE
 export LC_CTYPE="de_DE.utf8"
 export LC_NUMERIC="de_DE.utf8"
 export LC_TIME="de_DE.utf8"
@@ -28,7 +28,7 @@ export RSYNC_RSH=ssh
 # Load pyenv automatically by adding
 # the following to ~/.zshrc:
 
-export PATH="$HOME/.local/bin/:$HOME/opt/android-sdk-linux/:$HOME/opt/android-sdk-linux/platform-tools:$HOME/opt/android-sdk-linux/tools:$PATH"
+export PATH="$HOME/.local/bin/:$HOME/bin/:$PATH"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 
@@ -36,3 +36,7 @@ export PATH="$HOME/.local/bin/:$HOME/opt/android-sdk-linux/:$HOME/opt/android-sd
 export OS_LAB=~/git/OpenStack-lab
 export OS_ST=~/git/OpenStack-lab/labs
 export OS_BASH=~/git/OpenStack-lab/labs/osbash
+
+export PAGER=$(which vimpager)
+alias less=$PAGER
+alias zless=$PAGER

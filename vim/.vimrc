@@ -351,6 +351,8 @@ augroup json_autocmd
     autocmd FileType json set foldmethod=syntax
 augroup END
 
+autocmd BufRead,BufNewFile *mutt-* set filetype mail
+
 " Resize Bufferwindow when resizing terminal
 au VimResized * wincmd =
 
