@@ -28,7 +28,7 @@ export RSYNC_RSH=ssh
 # Load pyenv automatically by adding
 # the following to ~/.zshrc:
 
-export PATH="$HOME/.local/bin/:$HOME/opt/android-sdk-linux/:$HOME/opt/android-sdk-linux/platform-tools:$HOME/opt/android-sdk-linux/tools:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin/:$HOME/opt/android-sdk-linux/:$HOME/opt/android-sdk-linux/platform-tools:$HOME/opt/android-sdk-linux/tools:$PATH"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 
