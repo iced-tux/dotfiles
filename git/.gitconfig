@@ -4,7 +4,7 @@
 	pretty = oneline
 [user]
 	name = Christian Langer
-	email = ch.langer+git@posteo.de
+	email = ch.langer+github@posteo.de
 	signingkey = 7BAC46E8ADC1A7EC
 [core]
 	editor = vim
