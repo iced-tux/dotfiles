@@ -1,0 +1,67 @@
+# source some config
+set my_config="~/.mutt"
+
+source $my_config/solarized-dark-256.neomuttrc
+source $my_config/sidebar.rc
+source $my_config/pgp.rc
+
+source $my_config/posteo.rc
+source $my_config/familie.rc
+
+# Configuration Commands
+#
+auto_view text/html
+macro index 1 '<sync-mailbox><enter-command>source ~/.mutt/posteo.rc<enter><change-folder>!<enter>'
+macro index 2 '<sync-mailbox><enter-command>source ~/.mutt/familie.rc<enter><change-folder>!<enter>'
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+macro index <F5> "!mbsync -a" "Update through mbsync"
+macro index X "!mbsync -aX" "Update through mbsync"
+
+# Basic Options
+#
+set attribution = "Von %n am %d:"
+set attribution_locale = "de_DE.utf8"
+set autoedit = yes
+set auto_tag = yes
+set check_new = yes
+set date_format = "%a, %b %d, %Y - %T"
+set delete                          # don't ask
+set edit_headers
+set editor="vim +/^$ ++1 -c 'set tw=72 expandtab nosmartindent spell spelllang=de'"
+set fast_reply = yes
+set fcc_attach
+set forward_decode
+set header_cache = ~/.cache/mutt
+set help
+set history_remove_dups = yes
+set include = yes
+set index_format = "%4C %Z %{%T %F} %-15.15L (%?l?%4l&%4c?) %s"
+set mail_check = 0                  # minimum time between scans
+set mailcap_path 	= ~/.mutt/mailcap
+set mbox_type = maildir             # mailbox type
+set menu_context = 10
+set message_cachedir = "~/.cache/mutt"
+set pager_context = 20
+set pager_index_lines = 20          # 
+set pager_stop = yes
+set quit                            # don't ask
+set reverse_alias = yes
+set rfc2047_parameters              # decode RFC-2047-encoded MIME parameters
+set sleep_time = 0
+set smart_wrap
+set sort=reverse-threads
+set sort_aux=last-date-received
+set status_chars = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+set status_on_top
+set thorough_search
+set timeout = 300                   # idle time before scannig
+set wait_key = no                   # shut up mutt
+set ts_enabled = yes
+set ts_status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+unset confirmappend                 # don't ask
+unset metoo
+unset mime_forward
+unset user_agent

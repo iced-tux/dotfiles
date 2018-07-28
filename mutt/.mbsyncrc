@@ -1,0 +1,157 @@
+IMAPAccount posteo
+Host posteo.de
+Port 993
+User ch.langer@posteo.de
+PassCmd "/usr/bin/gpg -q --for-your-eyes-only --no-tty -d ~/mail/.accounts/posteo.gpg"
+SSLType IMAPS
+AuthMechs PLAIN
+SSLVersions TLSv1.2
+
+IMAPStore posteo-remote
+Account posteo
+
+MaildirStore posteo-local
+# The trailing "/" is important
+Path ~/mail/posteo/
+Inbox ~/mail/posteo/inbox
+
+Channel posteo-default
+Master :posteo-remote:
+Slave :posteo-local:inbox
+#Patterns INBOX
+
+Channel posteo-sent
+Master :posteo-remote:"Sent"
+slave  :posteo-local:sent
+
+Channel posteo-trash
+Master :posteo-remote:"Trash"
+slave  :posteo-local:trash
+
+Channel posteo-archive
+Master :posteo-remote:"Archiv"
+slave  :posteo-local:archive
+
+Channel posteo-spam
+Master :posteo-remote:"Spam"
+slave  :posteo-local:spam
+
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Automatically delete messages on either side if they are found deleted on the other.
+Expunge Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+
+Group posteo
+Channel posteo-default
+Channel posteo-trash
+Channel posteo-archive
+Channel posteo-sent
+Channel posteo-spam
+
+############################################
+
+IMAPAccount familie
+Host posteo.de
+Port 993
+User fam.langer@posteo.de
+PassCmd "/usr/bin/gpg -q --for-your-eyes-only --no-tty -d ~/mail/.accounts/familie.gpg"
+SSLType IMAPS
+AuthMechs PLAIN
+SSLVersions TLSv1.2
+
+IMAPStore familie-remote
+Account familie
+
+MaildirStore familie-local
+Path ~/mail/familie/
+Inbox ~/mail/familie/inbox
+
+Channel familie-archive
+Master :familie-remote:Archiv
+Slave :familie-local:archive
+
+Channel familie-drafts
+Master :familie-remote:Drafts
+Slave :familie-local:drafts
+
+Channel familie-default
+Master :familie-remote:
+Slave :familie-local:inbox
+
+Channel familie-sent
+Master :familie-remote:Sent
+Slave :familie-local:sent
+
+Channel familie-trash
+Master :familie-remote:Trash
+Slave :familie-local:trash
+
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Automatically delete messages on either side if they are found deleted on the other.
+Expunge Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+
+Group familie
+Channel familie-default
+Channel familie-trash
+Channel familie-archive
+Channel familie-sent
+
+############################################
+
+# IMAPAccount gmail
+# Host imap.gmail.com
+# User username@gmail.com
+# Pass applicationspecificpassword
+# UseIMAPS yes
+# # The following line should work. If get certificate errors, uncomment the two following lines
+# CertificateFile /etc/ssl/certs/ca-certificates.crt
+# #CertificateFile ~/.cert/imap.gmail.com.pem
+# #CertificateFile ~/.cert/Equifax_Secure_CA.pem
+# 
+# IMAPStore gmail-remote
+# Account gmail
+# 
+# MaildirStore gmail-local
+# # The trailing "/" is important
+# Path ~/.mail/gmail/
+# Inbox ~/.mail/gmail/inbox
+# 
+# Channel gmail-default
+# Master :gmail-remote:
+# Slave :gmail-local:Inbox
+# #Patterns INBOX
+# 
+# Channel gmail-sent
+# Master :gmail-remote:"[Gmail]/Sent Mail"
+# slave  :gmail-local:Sent
+# 
+# Channel gmail-trash
+# Master :gmail-remote:"[Gmail]/Trash"
+# slave  :gmail-local:Trash
+# 
+# Channel gmail-archive
+# Master :gmail-remote:"[Gmail]/All Mail"
+# slave  :gmail-local:All
+# 
+# Channel gmail-junk
+# Master :gmail-remote:"[Gmail]/Spam"
+# slave  :gmail-local:Junk
+# 
+# # Automatically create missing mailboxes, both locally and on the server
+# Create Both
+# # Automatically delete messages on either side if they are found deleted on the other.
+# Expunge Both
+# # Save the synchronization state files in the relevant directory
+# SyncState *
+# 
+# Group gmail
+# Channel gmail-default
+# Channel gmail-trash
+# Channel gmail-archive
+# Channel gmail-sent
+# Channel gmail-junk`
