@@ -2,7 +2,7 @@ IMAPAccount posteo
 Host posteo.de
 Port 993
 User ch.langer@posteo.de
-PassCmd "/usr/bin/gpg -q --for-your-eyes-only --no-tty -d ~/mail/.accounts/posteo.gpg"
+PassCmd "/usr/bin/gpg -q --for-your-eyes-only --no-tty -d ~/.mutt/.accounts/posteo.gpg"
 SSLType IMAPS
 AuthMechs PLAIN
 SSLVersions TLSv1.2
@@ -56,7 +56,7 @@ IMAPAccount familie
 Host posteo.de
 Port 993
 User fam.langer@posteo.de
-PassCmd "/usr/bin/gpg -q --for-your-eyes-only --no-tty -d ~/mail/.accounts/familie.gpg"
+PassCmd "/usr/bin/gpg -q --for-your-eyes-only --no-tty -d ~/.mutt/.accounts/familie.gpg"
 SSLType IMAPS
 AuthMechs PLAIN
 SSLVersions TLSv1.2
