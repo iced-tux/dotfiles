@@ -239,7 +239,7 @@ exec nm-applet
 exec parcellite
 exec nitrogen --restore
 exec cbatticon
-# exec redshift-gtk
+exec redshift-gtk
 exec ~/bin/nextcloud.sh
 exec thunar --daemon
 
