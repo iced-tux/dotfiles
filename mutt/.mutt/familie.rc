@@ -1,9 +1,10 @@
 # Paths ----------------------------------------------
+unmy_hdr *
+
 set folder           = "~/mail/familie"                   # mailbox location
 set spoolfile        = "~/mail/familie/inbox"             # inbox
 set record           = "~/mail/familie/sent"              # sent mail
 set postponed        = "~/mail/familie/drafts"
-set alias_file       = "~/.mutt/alias"                  # where to store aliases
 set from = "Fam.Langer@posteo.de"
 set realname = "Familie Langer"
 set sendmail = "/usr/bin/msmtp -a familie"

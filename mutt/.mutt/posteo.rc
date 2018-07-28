@@ -1,21 +1,20 @@
 # Paths ----------------------------------------------
 unmy_hdr *
+
 set folder           = "~/mail/posteo"                   # mailbox location
 set spoolfile        = "~/mail/posteo/inbox"             # inbox
 set record           = "~/mail/posteo/sent"              # sent mail
 set postponed        = "~/mail/posteo/drafts"
-set alias_file       = "~/.mutt/alias"                  # where to store aliases
 set from = "Ch.Langer@posteo.de"
 set realname = "Christian Langer"
 set sendmail = "/usr/bin/msmtp -a posteo"
 set envelope_from_address = "ch.langer@posteo.de"
-# set signature = "~/mail/.accounts/posteo_sig.txt"
 
 set my_name ="Christian Langer
 set my_from = "ch.langer@posteo.de"
 set my_fingerprint = "B053 3B8F DA4E 651C 1A07  D6F9 7BAC 46E8 ADC1 A7EC"
 
-set signature = "echo \"$my_name\nemail:\t$my_from\nGPG:\t$my_fingerprint\n\n$(fortune /usr/share/games/fortunes/bofh-excuses)\"|" 
+set signature = "echo \"$my_name\nemail:\t$my_from\nGPG:\t$my_fingerprint\n\n$(fortune bofh-excuses)\"|" 
 
 unmy_hdr *
 unset use_from
