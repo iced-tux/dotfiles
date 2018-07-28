@@ -14,5 +14,11 @@
   "theme": "default",
   "cwd": {
     "max_depth": 3
+  },
+  "hostname": {
+    "colorize": false
+  },
+  "vcs": {
+    "show_symbol": true
   }
 }

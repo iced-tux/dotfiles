@@ -36,7 +36,3 @@ export PATH="$HOME/.local/bin/:$HOME/bin/:$PATH"
 export OS_LAB=~/git/OpenStack-lab
 export OS_ST=~/git/OpenStack-lab/labs
 export OS_BASH=~/git/OpenStack-lab/labs/osbash
-
-export PAGER=$(which vimpager)
-alias less=$PAGER
-alias zless=$PAGER
