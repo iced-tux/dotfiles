@@ -1,0 +1,29 @@
+# Paths ----------------------------------------------
+set folder           = "~/mail/familie"                   # mailbox location
+set spoolfile        = "~/mail/familie/inbox"             # inbox
+set record           = "~/mail/familie/sent"              # sent mail
+set postponed        = "~/mail/familie/drafts"
+set alias_file       = "~/.mutt/alias"                  # where to store aliases
+set from = "Fam.Langer@posteo.de"
+set realname = "Familie Langer"
+set sendmail = "/usr/bin/msmtp -a familie"
+set envelope_from_address = "fam.langer@posteo.de"
+
+set my_name ="Familie Langer
+set my_from = "fam.langer@posteo.de"
+
+set signature = "echo \"$my_name\nemail:\t$my_from\n\"|" 
+
+unmy_hdr *
+unset use_from
+unset use_domain
+unset user_agent
+my_hdr BCC: fam.langer@posteo.de
+my_hdr REPLY-TO: fam.langer@posteo.de
+
+mailboxes "+-- Familie -----------"
+mailboxes = "+inbox"
+mailboxes = "+archive"
+mailboxes = "+drafts"
+mailboxes = "+sent"
+mailboxes = "+trash"
