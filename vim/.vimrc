@@ -150,7 +150,6 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'marijnh/tern_for_vim'
 " }}}
 
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -351,8 +350,6 @@ augroup json_autocmd
     autocmd FileType json set foldmethod=syntax
 augroup END
 
-autocmd BufRead,BufNewFile *mutt-* set filetype mail
-
 " Resize Bufferwindow when resizing terminal
 au VimResized * wincmd =
 
@@ -366,6 +363,12 @@ au BufEnter * let &titlestring = hostname() . ": editing " . expand("%:t")
 
 " When editing a file, always jump to the last cursor position
 au BufReadPost * if line("'\"") && line("'\"") <= line("$") | exe "normal `\"" | endif
+
+augroup mail " {
+    autocmd!
+    au BufRead,BufNewFile /tmp/neomutt-* set tw=72
+    au FileType mail setlocal formatoptions+=w
+augroup END " }
 
 """ Autocommands """ }}}
 
