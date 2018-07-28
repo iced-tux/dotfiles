@@ -6,7 +6,6 @@ alias cp='cp -v'
 alias mv='mv -v'
 alias rm='rm -v'
 alias grep='grep --color=auto --ignore-case'
-alias tmux='tmux attach || tmux new-session'
 
 apt-get () {
     LANGUAGE=en_US.utf8
