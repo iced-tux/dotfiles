@@ -103,55 +103,51 @@ Channel familie-sent
 
 ############################################
 
-# IMAPAccount gmail
-# Host imap.gmail.com
-# User username@gmail.com
-# Pass applicationspecificpassword
-# UseIMAPS yes
-# # The following line should work. If get certificate errors, uncomment the two following lines
-# CertificateFile /etc/ssl/certs/ca-certificates.crt
-# #CertificateFile ~/.cert/imap.gmail.com.pem
-# #CertificateFile ~/.cert/Equifax_Secure_CA.pem
+IMAPAccount gmail
+Host imap.gmail.com
+User christian.langer@gmail.com
+PassCmd "/usr/bin/gpg -q --for-your-eyes-only --no-tty -d ~/.mutt/.accounts/gmail.gpg"
+SSLType IMAPS
+AuthMechs PLAIN
+SSLVersions TLSv1.2
+ 
+IMAPStore gmail-remote
+Account gmail
+ 
+MaildirStore gmail-local
+Path ~/mail/gmail/
+Inbox ~/mail/gmail/inbox
+ 
+Channel gmail-default
+Master :gmail-remote:
+Slave :gmail-local:inbox
+ 
+Channel gmail-sent
+Master :gmail-remote:"[Gmail]/Sent Mail"
+slave  :gmail-local:sent
+ 
+Channel gmail-trash
+Master :gmail-remote:"[Gmail]/Trash"
+slave  :gmail-local:trash
+ 
+Channel gmail-archive
+Master :gmail-remote:"[Gmail]/All Mail"
+slave  :gmail-local:archive
+ 
+Channel gmail-spam
+Master :gmail-remote:"[Gmail]/Spam"
+slave  :gmail-local:spam
+ 
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Automatically delete messages on either side if they are found deleted on the other.
+Expunge Both
+# Save the synchronization state files in the relevant directory
+SyncState *
 # 
-# IMAPStore gmail-remote
-# Account gmail
-# 
-# MaildirStore gmail-local
-# # The trailing "/" is important
-# Path ~/.mail/gmail/
-# Inbox ~/.mail/gmail/inbox
-# 
-# Channel gmail-default
-# Master :gmail-remote:
-# Slave :gmail-local:Inbox
-# #Patterns INBOX
-# 
-# Channel gmail-sent
-# Master :gmail-remote:"[Gmail]/Sent Mail"
-# slave  :gmail-local:Sent
-# 
-# Channel gmail-trash
-# Master :gmail-remote:"[Gmail]/Trash"
-# slave  :gmail-local:Trash
-# 
-# Channel gmail-archive
-# Master :gmail-remote:"[Gmail]/All Mail"
-# slave  :gmail-local:All
-# 
-# Channel gmail-junk
-# Master :gmail-remote:"[Gmail]/Spam"
-# slave  :gmail-local:Junk
-# 
-# # Automatically create missing mailboxes, both locally and on the server
-# Create Both
-# # Automatically delete messages on either side if they are found deleted on the other.
-# Expunge Both
-# # Save the synchronization state files in the relevant directory
-# SyncState *
-# 
-# Group gmail
-# Channel gmail-default
-# Channel gmail-trash
-# Channel gmail-archive
-# Channel gmail-sent
-# Channel gmail-junk`
+Group gmail
+Channel gmail-default
+Channel gmail-trash
+Channel gmail-archive
+Channel gmail-sent
+Channel gmail-spam
