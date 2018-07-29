@@ -1,0 +1,36 @@
+# Paths ----------------------------------------------
+unmy_hdr *
+
+set folder           = "~/mail/gmail"                   # mailbox location
+set spoolfile        = "~/mail/gmail/inbox"             # inbox
+set record           = "~/mail/gmail/sent"              # sent mail
+set postponed        = "~/mail/gmail/drafts"
+set from = "Christian Langer <Ch.Langer@gmail.com>"
+set realname = "Christian Langer"
+set sendmail = "/usr/bin/msmtp -a gmail
+set envelope_from_address = "christian.langer@gmail.com"
+
+set my_name ="Christian Langer
+set my_from = "christian.langer@gmail.com"
+set my_fingerprint = "B053 3B8F DA4E 651C 1A07  D6F9 7BAC 46E8 ADC1 A7EC"
+
+set signature = "echo \"$my_name\nemail:\t$my_from\nGPG:\t$my_fingerprint\n\n$(fortune bofh-excuses)\"|" 
+
+unmy_hdr *
+unset use_from
+unset use_domain
+unset user_agent
+my_hdr BCC: christian.langer@gmail.com
+my_hdr REPLY-TO: christian.langer@gmail.com
+
+mailboxes "+-- GMail -----------"
+mailboxes = "+inbox"
+mailboxes = "+archive"
+mailboxes = "+drafts"
+mailboxes = "+sent"
+mailboxes = "+spam"
+mailboxes = "+trash"
+
+set pgp_sign_as = "0xADC1A7EC"
+set crypt_autosign = yes
+set pgp_use_gpg_agent = yes

@@ -8,6 +8,7 @@ source $my_config/aliases
 
 source $my_config/posteo.rc
 source $my_config/familie.rc
+source $my_config/gmail.rc
 
 # Configuration Commands
 #
@@ -16,6 +17,9 @@ macro index 1 '<sync-mailbox><enter-command>source ~/.mutt/posteo.rc<enter><chan
 folder-hook 'posteo' 'source ~/.mutt/posteo.rc'
 macro index 2 '<sync-mailbox><enter-command>source ~/.mutt/familie.rc<enter><change-folder>!<enter>'
 folder-hook 'familie' 'source ~/.mutt/familie.rc'
+macro index 3 '<sync-mailbox><enter-command>source ~/.mutt/gmail.rc<enter><change-folder>!<enter>'
+folder-hook 'gmail' 'source ~/.mutt/gmail.rc'
+
 macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
 macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 macro index <F5> "!mbsync -a" "Update through mbsync"
@@ -61,7 +65,7 @@ set status_chars = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 set status_on_top
 set thorough_search
-set timeout = 300                   # idle time before scannig
+set timeout = 10                   # idle time before scannig
 set ts_enabled = yes
 set ts_status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 set wait_key = no                   # shut up mutt
