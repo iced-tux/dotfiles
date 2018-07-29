@@ -157,6 +157,8 @@ bar {
     # -t solarized-dark-awesome \
         # spacer \
         # battery \
+        # redshift \
+        # spacer \
         # nic \
     status_command ~/git/bumblebee-status/bumblebee-status \
     -t solarized-dark-awesome \
@@ -165,8 +167,6 @@ bar {
         pasink \
         spacer \
         brightness \
-        spacer \
-        redshift \
         spacer \
         cpu \
         spacer \
