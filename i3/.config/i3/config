@@ -211,7 +211,7 @@ mode "$mode_system" {
     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
     bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -232,16 +232,18 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 
 # exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec udiskie -2 -a -n -t
-exec dunst
-exec blueman-applet
-exec nm-applet
-exec parcellite
-exec nitrogen --restore
-exec cbatticon
-exec redshift-gtk
-exec ~/bin/nextcloud.sh
-exec thunar --daemon
+exec --no-startup-id pulseadio -k
+exec --no-startup-id udiskie -2 -a -n -t
+exec --no-startup-id dunst
+exec --no-startup-id blueman-applet
+exec --no-startup-id nm-applet
+exec --no-startup-id parcellite
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id cbatticon
+exec --no-startup-id fluxgui
+exec --no-startup-id ~/bin/nextcloud.sh
+exec --no-startup-id thunar --daemon
+exec --no-startup-id pulseaudio -D
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -251,6 +253,7 @@ for_window [title="About Mozilla Firefox"] floating enable
 # assign clients to workspaces
 assign [class="^Firefox$"] $WS1
 assign [class="^[cC]laws-mail$"] $WS2
+assign [class="^neomutt$"] $WS2
 ### i3-gaps stuff ###
 
 # Necessary for i3-gaps to work properly (pixel can be any value)
@@ -267,8 +270,8 @@ client.focused_inactive #000000 #000000 #000000 #000000 #000000
 client.unfocused        #000000 #000000 #000000 #000000 #000000
 
 # Set inner/outer gaps
-gaps inner 5
-gaps outer -1
+gaps inner 12
+gaps outer 0
 
 # Gaps mode
 set $mode_gaps Gaps: (o) outer, (i) inner
