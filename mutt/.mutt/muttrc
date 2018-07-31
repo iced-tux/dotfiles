@@ -25,6 +25,11 @@ macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
 macro index <F5> "!mbsync -a" "Update through mbsync"
 macro index X "!mbsync -aX" "Update through mbsync"
 
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro index a "<limit>all\n" "show all messages (undo limit)"
+
 # Basic Options
 #
 set alias_file = "$my_config/aliases"
