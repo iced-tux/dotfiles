@@ -44,8 +44,8 @@ font pango:DejaVu Sans Mono for Powerline Book 10
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+x exec i3-sensible-terminal
-bindsym $mod+x exec st
+bindsym $mod+x exec i3-sensible-terminal
+# bindsym $mod+x exec st
 
 # kill focused window
 bindsym $alt+F4 kill
