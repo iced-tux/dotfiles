@@ -105,7 +105,7 @@ then
         bindkey "OC" forward-char # Right
         bindkey "[1;5C" vi-forward-word # C-Right
         bindkey "[1;5D" vi-backward-word # C-Left
-        # bindkey "" vi-backward-kill-word # C-Backspace
+        bindkey "" vi-backward-kill-word # C-Backspace
         bindkey "[3;5~" kill-word # C-Entf
         bindkey "q" push-line # C-ESC-q
         bindkey "" kill-whole-line # C-u
