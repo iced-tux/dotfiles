@@ -149,9 +149,13 @@ if [ "$TERM" != "linux" ] && [[ $(tty ) =~ '^/dev/pts/' ]]; then
     install_powerline_precmd
 fi
 
+autoload -U +X bashcompinit && bashcompinit
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-autoload -U +X bashcompinit && bashcompinit
+export VBOXMANAGE_COMPLETION="$HOME/git/vboxmanage-bash-completion"
+[ -s "$VBOXMANAGE_COMPLETION/VBoxManage" ] && \. $VBOXMANAGE_COMPLETION/VBoxManage
+
 complete -o nospace -C /home/christian/bin/packer packer
