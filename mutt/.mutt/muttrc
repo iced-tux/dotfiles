@@ -55,6 +55,7 @@ set mailcap_path 	= ~/.mutt/mailcap
 set mbox_type = maildir             # mailbox type
 set menu_context = 10
 set message_cachedir = "~/.cache/mutt"
+set new_mail_command = "notify-send -u critical -a neomutt -t 10000 'Neue Mail' '%n neue Nachrichten, %u ungelesen.' &"
 set pager_context = 20
 set pager_index_lines = 20          # 
 set pager_stop = yes
