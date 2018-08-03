@@ -281,7 +281,6 @@ bind-key m set-window-option synchronize-panes
 
 # copy mode
 bind-key Escape copy-mode
-bind-key -t vi-copy Escape cancel
 bind-key p paste-buffer
 bind-key -T copy-mode-vi 'v' send -X begin-selection
 bind-key -T copy-mode-vi 'V' send -X select-line
