@@ -145,66 +145,57 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    # font pango: 10
-    font pango:Droid Sans Mono for Powerline:style=Book 10
-    id bar-top
-    position top
-    workspace_buttons no
-    colors {
-        background #002B36
-    }
-    # status_command i3status
-    # i3bar_command i3bar
-    # -t solarized-dark-awesome \
-        # spacer \
-        # battery \
-        # redshift \
-        # spacer \
-        # nic \
-    status_command ~/git/bumblebee-status/bumblebee-status \
-    -t solarized-dark-awesome \
-    -m  indicator \
-        spacer \
-        pasink \
-        spacer \
-        brightness \
-        spacer \
-        cpu \
-        spacer \
-        nic \
-        spacer \
-        datetime \
-        spacer \
-        spacer \
-        spacer \
-        spacer \
-        spacer \
-        spacer \
-        spacer \
-        spacer \
-        spacer \
-        spacer \
-    -p  datetime.format="%H:%M - %a, %d.%m.%Y (KW %V)" \
-        memory.usedonly="true" \
-        nic.states="^down" traffic.states="^down" \
-        nic.format="{intf} {ip}" \
-        cpu.format="{:05.1f}%" \
-        spacer.text=" "
-}
+# bar {
+#     # font pango: 10
+#     font pango:Droid Sans Mono for Powerline:style=Book 10
+#     id bar-top
+#     tray_output none
+#     position top
+#     workspace_buttons no
+#     colors {
+#         background #002B36
+#     }
+#     # status_command i3status
+#     # i3bar_command i3bar
+#     # -t solarized-dark-awesome \
+#         # spacer \
+#         # battery \
+#         # redshift \
+#         # spacer \
+#         # nic \
+#     status_command ~/git/bumblebee-status/bumblebee-status \
+#     -t solarized-dark-awesome \
+#     -m  indicator \
+#         spacer \
+#         pasink \
+#         spacer \
+#         brightness \
+#         spacer \
+#         cpu \
+#         spacer \
+#         nic \
+#         spacer \
+#         datetime \
+#     -p  datetime.format="%H:%M - %a, %d.%m.%Y (KW %V)" \
+#         memory.usedonly="true" \
+#         nic.states="^down" traffic.states="^down" \
+#         nic.format="{intf} {ip}" \
+#         cpu.format="{:05.1f}%" \
+#         spacer.text=" "
+# }
 
-bar {
-    font pango: 10
-    id bar-bottom
-    position bottom
-    tray_output none
-    colors {
-        # background #002B36
-        background #13282B
-    }
-}
-
-# set $Locker i3lock -i $HOME/Pictures/lock/lock.png && sleep 1
+# bar {
+#     font pango: 10
+#     id bar-bottom
+#     position bottom
+#     tray_output none
+#     colors {
+#         # background #002B36
+#         background #13282B
+#     }
+# }
+#
+# # set $Locker i3lock -i $HOME/Pictures/lock/lock.png && sleep 1
 set $Locker slimlock
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -232,9 +223,12 @@ bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 
 # autostart section
 
+
+exec --no-startup-id polybar top
+exec --no-startup-id polybar bottom
+# exec --no-startup-id trayer --edge bottom --align right --height 24 --transparent true --alpha 0 --tint 0x000000 --iconspacing 6
 # exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id pulseadio -k
 exec --no-startup-id udiskie -2 -a -n -t
 exec --no-startup-id dunst
 exec --no-startup-id blueman-applet
@@ -243,9 +237,9 @@ exec --no-startup-id parcellite
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id cbatticon
 exec --no-startup-id fluxgui
-exec --no-startup-id ~/bin/nextcloud.sh
+exec --no-startup-id nextcloud
 exec --no-startup-id thunar --daemon
-exec --no-startup-id pulseaudio -D
+exec --no-startup-id pasystray
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
