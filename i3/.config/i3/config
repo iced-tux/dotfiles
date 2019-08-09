@@ -97,6 +97,7 @@ set $WS2 2: mail
 set $WS3 3: media
 set $WS4 4: office
 set $WS5 5: terminal
+set $WS6 6: virtualbox
 
 
 
@@ -106,6 +107,8 @@ bindsym $alt+2 workspace $WS2
 bindsym $alt+3 workspace $WS3
 bindsym $alt+4 workspace $WS4
 bindsym $alt+5 workspace $WS5
+bindsym $alt+6 workspace $WS6
+
 bindsym $mod+minus scratchpad show
 bindsym $mod+shift+minus move scratchpad
 
@@ -115,6 +118,7 @@ bindsym $alt+Shift+2 move container to workspace $WS2
 bindsym $alt+Shift+3 move container to workspace $WS3
 bindsym $alt+Shift+4 move container to workspace $WS4
 bindsym $alt+Shift+5 move container to workspace $WS5
+bindsym $alt+Shift+6 move container to workspace $WS6
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -143,65 +147,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#     # font pango: 10
-#     font pango:Droid Sans Mono for Powerline:style=Book 10
-#     id bar-top
-#     tray_output none
-#     position top
-#     workspace_buttons no
-#     colors {
-#         background #002B36
-#     }
-#     # status_command i3status
-#     # i3bar_command i3bar
-#     # -t solarized-dark-awesome \
-#         # spacer \
-#         # battery \
-#         # redshift \
-#         # spacer \
-#         # nic \
-#     status_command ~/git/bumblebee-status/bumblebee-status \
-#     -t solarized-dark-awesome \
-#     -m  indicator \
-#         spacer \
-#         pasink \
-#         spacer \
-#         brightness \
-#         spacer \
-#         cpu \
-#         spacer \
-#         nic \
-#         spacer \
-#         datetime \
-#     -p  datetime.format="%H:%M - %a, %d.%m.%Y (KW %V)" \
-#         memory.usedonly="true" \
-#         nic.states="^down" traffic.states="^down" \
-#         nic.format="{intf} {ip}" \
-#         cpu.format="{:05.1f}%" \
-#         spacer.text=" "
-# }
+set $Locker 'betterlockscreen -l blur'
 
-# bar {
-#     font pango: 10
-#     id bar-bottom
-#     position bottom
-#     tray_output none
-#     colors {
-#         # background #002B36
-#         background #13282B
-#     }
-# }
-#
-# # set $Locker i3lock -i $HOME/Pictures/lock/lock.png && sleep 1
-set $Locker slimlock
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+bindsym $mod+l exec betterlockscreen -l blur 
+
+set $mode_system System (e) logout, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
     bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
@@ -212,34 +164,34 @@ mode "$mode_system" {
 }
 
 bindsym $mod+Pause mode "$mode_system"
-bindsym $mod+l exec "$Locker"
 bindsym $mod+b exec thunar
 
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume "@DEFAULT_SINK@" +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume "@DEFAULT_SINK@" -5% #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86HomePage exec google-chrome-beta
+bindsym XF86Mail exec lxterminal -T Mail --command ~/bin/neomutt-tmux.sh
+bindsym XF86Eject exec spotify
+
 
 # autostart section
 
 
-exec --no-startup-id polybar top
-exec --no-startup-id polybar bottom
-# exec --no-startup-id trayer --edge bottom --align right --height 24 --transparent true --alpha 0 --tint 0x000000 --iconspacing 6
-# exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
-# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id udiskie -2 -a -n -t
-exec --no-startup-id dunst
-exec --no-startup-id blueman-applet
-exec --no-startup-id nm-applet
-exec --no-startup-id parcellite
-exec --no-startup-id nitrogen --restore
-exec --no-startup-id cbatticon
-exec --no-startup-id fluxgui
-exec --no-startup-id nextcloud
-exec --no-startup-id thunar --daemon
-exec --no-startup-id pasystray
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh 
+exec --no-startup-id udiskie -2 -a -n -t 
+# exec --no-startup-id dunst
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd 
+exec --no-startup-id xfce4-volumed-pulse --no-daemon 
+exec --no-startup-id numlockx on
+exec --no-startup-id xfce4-clipman
+exec --no-startup-id nitrogen --restore 
+exec --no-startup-id nm-applet 
+exec --no-startup-id redshift-gtk -t 6500:3000 -v -l 50.81503:7.03777
+exec --no-startup-id nextcloud 
+exec --no-startup-id thunar --daemon 
+exec --no-startup-id pasystray 
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -248,8 +200,11 @@ for_window [title="About Mozilla Firefox"] floating enable
 #
 # assign clients to workspaces
 assign [class="^Firefox$"] $WS1
+assign [class="^[gG]oogle-chrome.*$"] $WS1
 assign [class="^[cC]laws-mail$"] $WS2
-assign [class="^neomutt$"] $WS2
+assign [class="^[lL]xterminal$" title="^Mail$"] $WS2
+assign [class="^[sS]potify" title="^Spotify Premium$"] $WS3
+assign [class="^VirtualBox.*"] $WS6
 ### i3-gaps stuff ###
 
 # Necessary for i3-gaps to work properly (pixel can be any value)
