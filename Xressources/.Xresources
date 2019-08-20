@@ -6,8 +6,7 @@ Xcursor.theme: Obsidian
 
 XTerm*jumpScroll:		true
 XTerm*multiScroll:		true
-XTerm*faceName:			DejaVu Sans Mono for Powerline Book:pixelsize=13
-! XTerm*faceName:			Ubuntu Mono:pixelsize=13
+XTerm*faceName:			Roboto Regular:pixelsize=10
 XTerm*loginShell:		true
 XTerm*visualBell:		false
 XTerm*scrollBar:		false
@@ -26,7 +25,7 @@ XTerm*utf8:				1
 
 URxvt*jumpScroll:		true
 URxvt*multiScroll:		true
-URxvt*font:				xft:DejaVu Sans Mono for Powerline::pixelsize=12:antialias=true
+URxvt*font:				xft:Roboto Regular::pixelsize=10:antialias=true
 URxvt*loginShell:		true
 URxvt*visualBell:		false
 URxvt*scrollBar:		false
