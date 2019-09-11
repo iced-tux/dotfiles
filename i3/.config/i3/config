@@ -188,7 +188,7 @@ exec --no-startup-id udiskie -2 -a -n -t
 # exec --no-startup-id dunst
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd 
 exec --no-startup-id xfce4-volumed-pulse --no-daemon 
-exec --no-startup-id xfce4-power-management
+exec --no-startup-id xfce4-power-manager --no-daemon
 exec --no-startup-id numlockx on
 exec --no-startup-id xfce4-clipman
 exec --no-startup-id nitrogen --restore 
